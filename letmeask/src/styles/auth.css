@@ -1,0 +1,70 @@
+#page-auth{
+    display: flex;
+    align-items: stretch;
+    height: 100vh;
+}
+
+#page-auth aside{
+    flex: 7;
+
+    background: #835afd;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 120px 80px;
+
+}
+
+#page-auth aside img{
+    max-width: 320px;
+}
+
+#page-auth aside strong{
+    font-size: 3.5rem;
+    font-family: "Poppins", sans-serif;
+    line-height: 4rem;
+    margin-top: 1rem;
+}
+
+#page-auth aside p{
+    font-size: 2.5rem;
+    line-height: 32px;
+    margin-top: 16px;
+    color: #f8f8f8;
+}
+
+#page-auth main{
+    flex: 8;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#page-auth .main-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    align-items: stretch;
+    text-align: center;
+}
+
+#page-auth .main-content >img{
+    align-self: center;
+}
+
+#page-auth .main-content form input{
+    height: 50px;
+    border-radius: 8px;
+    padding: 0 16px;
+    background: #fff;
+    border: 1px solid #a8a8b3;
+}
+
+
+
+
+
