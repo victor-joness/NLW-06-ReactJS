@@ -1,0 +1,29 @@
+.button{
+    display: flex;
+    margin-top: 4rem;
+    height: 50px;
+    border-radius: .5rem;
+    font-weight: 500;
+    background: #835afd;
+    padding: 0 32px;
+    cursor: pointer;
+    border: 0;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    transition: .2s all linear;
+}
+
+.button >img{
+    margin-right: 1rem;
+}
+
+.button:not(:disabled):hover{
+    letter-spacing: 0.5px;
+    filter: brightness(0.9);
+}
+
+.button:disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+}

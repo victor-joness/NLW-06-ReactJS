@@ -58,13 +58,87 @@
 
 #page-auth .main-content form input{
     height: 50px;
-    border-radius: 8px;
+    border-radius: .5rem;
     padding: 0 16px;
     background: #fff;
     border: 1px solid #a8a8b3;
 }
 
+#page-auth .main-content form button{
+    margin-top: 1rem;
+}
+
+#page-auth .main-content form button, #page-auth .main-content form input{
+    width: 100%;
+}
+
+#page-auth .main-content .create-room{
+    display: flex;
+    margin-top: 4rem;
+    height: 50px;
+    border-radius: .5rem;
+    font-weight: 500;
+    background: #ea4335;
+    cursor: pointer;
+    border: 0;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    transition: .2s all linear;
+}
+
+#page-auth .main-content .create-room >img{
+    margin-right: 1rem;
+}
+
+#page-auth .main-content .create-room:hover{
+    letter-spacing: 0.5px;
+    filter: brightness(0.9);
+}
+
+#page-auth .main-content .separator{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin: 32px 0;
+    color: #a8a8b3;
+}
+
+#page-auth .main-content .separator::before{
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #a8a8b3;
+    margin-right: 16px;
+}
+
+#page-auth .main-content .separator::after{
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #a8a8b3;
+    margin-left: 16px;
+}
+
+/* ----------- */
 
 
 
+#page-auth .main-content p{
+    font-size: 1.3rem;
+    color: #737380;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+#page-auth .main-content p a{
+    color: #e559f9;
+}
+
+#page-auth .main-content h2{
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    font-family: "Poppins", sans-serif;
+}
 
