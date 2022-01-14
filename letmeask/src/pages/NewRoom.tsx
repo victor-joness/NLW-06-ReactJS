@@ -10,6 +10,8 @@ import { Button } from '../components/Button';
 import "../styles/auth.css"
 
 import { useAuth } from '../hooks/useAuth';
+import { database } from '../services/firebase';
+
 
 export function NewRoom(){
     const { user } = useAuth();
@@ -23,7 +25,12 @@ export function NewRoom(){
             return;
         }
 
-        
+        const roomRef = database.ref("rooms");
+
+        const firebaseRoom = await roomRef.push({
+            title: newRoom,
+            authorId: user?.id,
+        })
     } 
 
     return(

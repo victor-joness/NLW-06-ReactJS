@@ -1,7 +1,7 @@
 import * as firebase from 'firebase/compat/app'
 
-require('firebase/auth')
-require('firebase/database')
+require('firebase/compat/auth')
+require('firebase/compat/database')
 
 
 const firebaseConfig = {
@@ -16,7 +16,7 @@ const firebaseConfig = {
 
 firebase.default.initializeApp(firebaseConfig);
 
-const auth = firebase.default.auth;
-const database = firebase.default.database;
+const auth = firebase.default.auth();
+const database = firebase.default.database();
 
-export { firebase, auth , database}
+export {firebase, auth , database}
