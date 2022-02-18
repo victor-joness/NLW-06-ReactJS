@@ -60,7 +60,7 @@
 
 }
 
-#page-room main form .form-footer span{
+#page-room main form .form-footer > span{
     font-size: 14px;
     color: #737380;
     font-weight: 500;
@@ -75,6 +75,26 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+#page-room main form .form-footer .user-info{
+    display: flex;
+    align-items: center;
+}
+
+#page-room main form .form-footer .user-info img{
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+}
+
+#page-room main form .form-footer .user-info span{
+    margin-left: .8rem;
+    color: #29292e;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+
 
 
 
