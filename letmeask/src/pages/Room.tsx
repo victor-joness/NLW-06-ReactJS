@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import logoImg from '../assets/images/logo.svg';
@@ -9,6 +9,27 @@ import { database } from "../services/firebase";
 
 import "../styles/room.css";
 
+type FirebaseQuestions = Record<string, {
+    author: {
+        name: string;
+        avatar: string;
+    }
+    content: string;
+    isAnswered: boolean;
+    isHighligted: boolean;
+}>
+
+type Question = {
+    id: string;
+    content: string;
+    author: {
+        name: string;
+        avatar: string;
+    }
+    isHighligted: boolean;
+    isAnswered: boolean;
+}
+
 type RoomParams = {
     id: string;
 }
@@ -18,7 +39,33 @@ export function Room(){
     const {user} = useAuth();
     const params = useParams<RoomParams>();
     const [ newQuestion , setNewQuestion] = useState("")
+    const [questions, setQuestions] = useState({})
+    const [title, setTitle] = useState('')
+
     const RoomId = params.id;
+
+    useEffect(() => {
+        const roomref = database.ref(`rooms/${RoomId}`);
+
+        roomref.on("value", room => {
+            const databaseRoom = room.val()
+            const firebaseQuestions: FirebaseQuestions = databaseRoom.questions;
+
+            const parsedQuestions = Object.entries(firebaseQuestions).map(([key, value]) => {
+                return {
+                    id: key,
+                    content: value.content,
+                    author: value.content,
+                    isHighligted: value.isHighligted,
+                    isAnswered: value.isAnswered
+                }
+            })
+         
+            setQuestions(parsedQuestions);
+            setTitle(databaseRoom.title);
+        })
+        
+    }, [RoomId]);
 
     async function handleSendQuestion(event: FormEvent){
         event.preventDefault();
@@ -58,8 +105,8 @@ export function Room(){
 
             <main>
                 <div className="room-title">
-                    <h1>Sala React</h1>
-                    <span>4 perguntas</span>
+                    <h1>Sala : {title}</h1>
+                    {parsedQuestions.length > 0 && <span>{Object.keys(questions).length} perguntas</span>}
                 </div>
 
                 <form onSubmit={handleSendQuestion}>
@@ -82,7 +129,13 @@ export function Room(){
                         <Button type='submit' disabled={!user}>Enviar pergunta</Button>
                     </div>
                 </form>
+
+                {JSON.stringify(questions)}
             </main>
         </div>
     );
+}
+
+function parsedQuestions(parsedQuestions: any) {
+    throw new Error("Function not implemented.");
 }
